@@ -1,0 +1,298 @@
+/* =====================================================================
+   A·TEK — фирменные стили для блоков Tilda (T123)
+   Графит #24272C · Оранжевый #F47735 · Синий #4263C7
+   Все правила внутри .atek, чтобы не конфликтовать со стилями Tilda.
+   ===================================================================== */
+.atek{
+  --bg:#1A1C20; --surface:#24272C; --surface-2:#2C3036; --line:rgba(255,255,255,.09);
+  --text:#F4F4F2; --muted:#A3A7AE; --dim:#6E737B;
+  --orange:#F47735; --blue:#4263C7; --blue-text:#8BA3EE;
+  --lvl1:#34806B; --lvl2:#D7A23B; --lvl3:#B8524A;
+  --r:16px; --r-sm:10px; --max:1200px;
+  font-family:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:var(--text); background:var(--bg); font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.atek *,.atek *::before,.atek *::after{box-sizing:border-box}
+.atek a{color:inherit;text-decoration:none}
+.atek img{max-width:100%;display:block}
+.atek button,.atek input,.atek select,.atek textarea{font:inherit;color:inherit}
+.atek h1,.atek h2,.atek h3,.atek p{margin:0}
+.atek-wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.atek-sec{padding:72px 0}
+.atek-sec--tight{padding:40px 0}
+.atek-h1{font-size:clamp(32px,5vw,56px);line-height:1.08;font-weight:600;letter-spacing:-.02em}
+.atek-h2{font-size:clamp(26px,3.4vw,40px);line-height:1.15;font-weight:600;letter-spacing:-.01em}
+.atek-h3{font-size:20px;font-weight:600;line-height:1.3}
+.atek-lead{color:var(--muted);font-size:18px;max-width:560px}
+.atek-dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--orange);margin-left:.08em;vertical-align:baseline}
+.atek-eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+.atek-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.atek-muted{color:var(--muted)}
+
+/* ---------- Логотип ---------- */
+.atek-logo{display:inline-flex;align-items:center;color:var(--text)}
+.atek-logo svg{height:22px;width:auto}
+
+/* ---------- Кнопки ---------- */
+.atek-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 24px;border-radius:999px;border:0;cursor:pointer;font-weight:500;font-size:16px;transition:transform .15s,background .15s,opacity .15s;white-space:nowrap}
+.atek-btn:active{transform:scale(.98)}
+.atek-btn--primary{background:var(--blue);color:#fff}
+.atek-btn--primary:hover{background:#3656B8}
+.atek-btn--accent{background:var(--orange);color:#1A1C20}
+.atek-btn--accent:hover{background:#FF8747}
+.atek-btn--ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.atek-btn--ghost:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.atek-btn--sm{height:40px;padding:0 18px;font-size:15px}
+.atek-btn[disabled]{opacity:.45;pointer-events:none}
+.atek-link{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500}
+.atek-link::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange)}
+
+/* ---------- Шапка ---------- */
+.atek-header{position:sticky;top:0;z-index:50;background:rgba(26,28,32,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.atek-header .atek-wrap{display:flex;align-items:center;gap:32px;height:72px}
+.atek-nav{display:flex;gap:28px;margin-left:auto;font-size:15px}
+.atek-nav a{color:var(--muted);transition:color .15s}
+.atek-nav a:hover,.atek-nav a.is-active{color:var(--text)}
+.atek-nav a.is-active::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-left:6px;vertical-align:middle}
+.atek-hicons{display:flex;gap:6px;align-items:center}
+.atek-icon-btn{position:relative;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:transparent;border:0;cursor:pointer;color:var(--text)}
+.atek-icon-btn:hover{background:var(--surface)}
+.atek-icon-btn svg{width:22px;height:22px}
+.atek-badge-count{position:absolute;top:4px;right:3px;min-width:18px;height:18px;border-radius:9px;background:var(--orange);color:#1A1C20;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 4px}
+.atek-badge-count:empty{display:none}
+.atek-burger{display:none}
+@media (max-width:900px){
+  .atek-nav{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 20px;display:none}
+  .atek-nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:18px;color:var(--text)}
+  .atek-header.is-open .atek-nav{display:flex}
+  .atek-burger{display:grid}
+  .atek-hicons{margin-left:auto}
+}
+
+/* ---------- Подвал ---------- */
+.atek-footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);font-size:15px}
+.atek-footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.atek-footer h4{margin:0 0 14px;color:var(--text);font-size:15px;font-weight:600}
+.atek-footer a{display:block;padding:4px 0}
+.atek-footer a:hover{color:var(--text)}
+.atek-footer-bottom{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--dim)}
+@media (max-width:800px){.atek-footer-grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- Главный экран ---------- */
+.atek-hero{position:relative;overflow:hidden;padding:88px 0 72px}
+.atek-hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.atek-hero .atek-lead{margin:24px 0 36px}
+.atek-hero-art{position:relative;aspect-ratio:1/1;max-width:520px;justify-self:end;width:100%}
+.atek-hero-art svg{width:100%;height:100%}
+@media (max-width:860px){.atek-hero-grid{grid-template-columns:1fr}.atek-hero-art{max-width:360px;justify-self:center}}
+
+/* Преимущества */
+.atek-perks{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.atek-perk{padding:28px 24px;display:flex;gap:16px;border-left:1px solid var(--line)}
+.atek-perk:first-child{border-left:0;padding-left:0}
+.atek-perk svg{flex:none;width:32px;height:32px;color:var(--blue-text)}
+.atek-perk b{display:block;font-weight:600;margin-bottom:4px}
+.atek-perk span{color:var(--muted);font-size:14px}
+@media (max-width:900px){.atek-perks{grid-template-columns:1fr 1fr}.atek-perk{border-left:0;padding-left:0;border-top:1px solid var(--line)}.atek-perk:nth-child(-n+2){border-top:0}}
+@media (max-width:520px){.atek-perks{grid-template-columns:1fr}.atek-perk:nth-child(2){border-top:1px solid var(--line)}}
+
+/* ---------- Линейки (суббренды) ---------- */
+.atek-lines{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.atek-line-card{position:relative;background:var(--surface);border-radius:var(--r);padding:28px 24px 24px;display:flex;flex-direction:column;min-height:300px;transition:background .2s,transform .2s}
+.atek-line-card:hover{background:var(--surface-2);transform:translateY(-3px)}
+.atek-line-card .atek-line-name{font-size:26px;font-weight:600;margin-top:6px}
+.atek-line-card .atek-line-sub{color:var(--muted);font-size:15px}
+.atek-line-card .atek-line-ico{margin-top:auto;width:96px;height:96px;color:var(--text)}
+.atek-line-card .atek-link{margin-top:20px}
+.atek-wordmark{font-weight:700;letter-spacing:.06em;font-size:15px}
+@media (max-width:980px){.atek-lines{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.atek-lines{grid-template-columns:1fr}.atek-line-card{min-height:240px}}
+
+/* ---------- Принципы ---------- */
+.atek-principles{display:grid;grid-template-columns:1fr 1fr;gap:40px 48px;margin-top:40px}
+.atek-principle{display:flex;gap:18px}
+.atek-principle svg{flex:none;width:36px;height:36px;color:var(--orange)}
+.atek-principle b{display:block;font-size:19px;font-weight:600;margin-bottom:6px}
+.atek-principle span{color:var(--muted)}
+.atek-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+@media (max-width:860px){.atek-split,.atek-principles{grid-template-columns:1fr}}
+
+/* ---------- Каталог: панель фильтров ---------- */
+.atek-cat-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.atek-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.atek-tabs::-webkit-scrollbar{display:none}
+.atek-tab{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px 0 14px;border-radius:999px;background:var(--surface);border:0;cursor:pointer;white-space:nowrap;color:var(--muted);transition:all .15s}
+.atek-tab svg{width:26px;height:26px}
+.atek-tab:hover{color:var(--text)}
+.atek-tab.is-active{background:var(--text);color:var(--bg)}
+.atek-tab.is-active svg circle[data-accent]{fill:var(--orange)}
+.atek-chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.atek-chip{height:36px;padding:0 14px;border-radius:999px;border:0;background:transparent;box-shadow:inset 0 0 0 1px var(--line);color:var(--muted);cursor:pointer;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+.atek-chip:hover{color:var(--text)}
+.atek-chip.is-active{box-shadow:inset 0 0 0 1px var(--text);color:var(--text)}
+.atek-chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.atek-toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:24px 0 28px;padding-top:24px;border-top:1px solid var(--line)}
+.atek-search{flex:1 1 260px;position:relative}
+.atek-search input{width:100%;height:44px;border-radius:999px;border:0;background:var(--surface);padding:0 16px 0 44px;outline:none}
+.atek-search input:focus{box-shadow:0 0 0 2px var(--blue)}
+.atek-search svg{position:absolute;left:14px;top:12px;width:20px;height:20px;color:var(--muted)}
+.atek-select{height:44px;border-radius:999px;border:0;background:var(--surface);padding:0 36px 0 16px;appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A3A7AE' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.atek-select option{background:var(--surface);color:var(--text)}
+.atek-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-size:15px;color:var(--muted);user-select:none}
+.atek-toggle input{appearance:none;-webkit-appearance:none;width:40px;height:24px;border-radius:12px;background:var(--surface-2);position:relative;cursor:pointer;transition:background .15s;margin:0}
+.atek-toggle input::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:all .15s}
+.atek-toggle input:checked{background:var(--blue)}
+.atek-toggle input:checked::after{left:19px;background:#fff}
+.atek-count{color:var(--dim);font-size:14px;margin-left:auto}
+
+/* ---------- Карточка товара в сетке ---------- */
+.atek-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1080px){.atek-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:780px){.atek-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+.atek-card{background:var(--surface);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,background .2s;position:relative}
+.atek-card:hover{transform:translateY(-3px);background:var(--surface-2)}
+.atek-card-img{aspect-ratio:1/1;background:#202327;display:grid;place-items:center;position:relative;overflow:hidden}
+.atek-card-img img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .3s}
+.atek-card:hover .atek-card-img img{transform:scale(1.04)}
+.atek-card-tags{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:6px;justify-content:space-between;align-items:flex-start}
+.atek-card-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;gap:8px}
+.atek-card-line{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.atek-card-name{font-size:16px;font-weight:500;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.atek-card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px}
+.atek-price{font-size:20px;font-weight:600;white-space:nowrap}
+.atek-price s{font-size:14px;color:var(--dim);font-weight:400;margin-left:8px}
+.atek-card-add{width:42px;height:42px;border-radius:50%;border:0;background:var(--blue);color:#fff;display:grid;place-items:center;cursor:pointer;flex:none;transition:background .15s}
+.atek-card-add:hover{background:#3656B8}
+.atek-card-add svg{width:20px;height:20px}
+.atek-card-add.is-added{background:var(--orange);color:#1A1C20}
+@media (max-width:520px){.atek-card-body{padding:12px}.atek-price{font-size:17px}.atek-card-name{font-size:14px}.atek-card-add{width:36px;height:36px}}
+
+/* Остатки */
+.atek-stock{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.atek-stock::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lvl1)}
+.atek-stock--low::before{background:var(--lvl2)}
+.atek-stock--out::before{background:var(--dim)}
+
+/* Маркировка: уровень монтажа 01–03 и PRO (из навигации упаковки) */
+.atek-lvl{display:inline-flex;align-items:center;gap:8px;background:rgba(26,28,32,.8);backdrop-filter:blur(6px);border-radius:8px;padding:5px 9px 5px 7px;font-size:12px;line-height:1;color:var(--text)}
+.atek-lvl b{font-size:14px;font-weight:700;color:var(--c)}
+.atek-lvl::before{content:"";width:3px;align-self:stretch;border-radius:2px;background:var(--c)}
+.atek-lvl-bars{display:inline-flex;gap:3px}
+.atek-lvl-bars i{width:12px;height:5px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.atek-lvl-bars i.on{background:var(--c);box-shadow:none}
+.atek-pro{display:inline-flex;align-items:center;height:24px;padding:0 9px;border-radius:6px;box-shadow:inset 0 0 0 1.5px var(--blue-text);color:var(--blue-text);font-size:12px;font-weight:700;letter-spacing:.04em;background:rgba(26,28,32,.8)}
+.atek-sale{display:inline-flex;align-items:center;height:24px;padding:0 9px;border-radius:6px;background:var(--orange);color:#1A1C20;font-size:12px;font-weight:700}
+
+/* Заглушка без фото: иконка линейки на сетке из точек */
+.atek-ph{width:100%;height:100%;display:grid;place-items:center;background-image:radial-gradient(rgba(139,163,238,.28) 1.2px,transparent 1.3px);background-size:18px 18px;background-position:center}
+.atek-ph svg{width:38%;height:38%;color:var(--muted)}
+
+.atek-more{display:flex;justify-content:center;margin-top:32px}
+.atek-empty{padding:64px 20px;text-align:center;color:var(--muted);background:var(--surface);border-radius:var(--r)}
+.atek-skel{background:linear-gradient(90deg,var(--surface) 0,var(--surface-2) 50%,var(--surface) 100%);background-size:200% 100%;animation:atek-sk 1.2s infinite;border-radius:var(--r)}
+@keyframes atek-sk{to{background-position:-200% 0}}
+
+/* ---------- Страница товара ---------- */
+.atek-crumbs{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--dim);margin-bottom:28px}
+.atek-crumbs a:hover{color:var(--text)}
+.atek-crumbs span::before{content:"·";margin-right:8px}
+.atek-pp{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+@media (max-width:900px){.atek-pp{grid-template-columns:1fr;gap:28px}}
+.atek-gal-main{aspect-ratio:1/1;background:var(--surface);border-radius:var(--r);overflow:hidden;position:relative;display:grid;place-items:center}
+.atek-gal-main img{width:100%;height:100%;object-fit:contain;padding:32px}
+.atek-gal-thumbs{display:flex;gap:10px;margin-top:10px;overflow-x:auto}
+.atek-gal-thumbs button{flex:none;width:76px;height:76px;border-radius:var(--r-sm);background:var(--surface);border:0;padding:6px;cursor:pointer;box-shadow:inset 0 0 0 1px transparent}
+.atek-gal-thumbs button.is-active{box-shadow:inset 0 0 0 2px var(--orange)}
+.atek-gal-thumbs img{width:100%;height:100%;object-fit:contain}
+.atek-pp-info{position:sticky;top:96px}
+.atek-pp-brand{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:15px;margin-bottom:12px}
+.atek-pp-brand b{color:var(--text);font-weight:600}
+.atek-pp h1{font-size:clamp(26px,3vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.01em}
+.atek-pp-sku{color:var(--dim);font-size:14px;margin-top:10px}
+.atek-pp-marks{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.atek-pp-marks .atek-lvl,.atek-pp-marks .atek-pro{background:var(--surface)}
+.atek .atek-pp-short{color:var(--muted);margin:4px 0 24px}
+.atek-buy{background:var(--surface);border-radius:var(--r);padding:24px}
+.atek-buy .atek-price{font-size:32px}
+.atek-buy-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.atek-buy-row .atek-btn{flex:1 1 180px}
+.atek-qty{display:inline-flex;align-items:center;height:48px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line)}
+.atek-qty button{width:44px;height:48px;border:0;background:transparent;cursor:pointer;font-size:20px;color:var(--muted)}
+.atek-qty button:hover{color:var(--text)}
+.atek-qty input{width:44px;text-align:center;border:0;background:transparent;outline:none;-moz-appearance:textfield}
+.atek-qty input::-webkit-inner-spin-button{-webkit-appearance:none}
+.atek-buy-note{margin-top:16px;font-size:14px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+.atek-ptabs{margin-top:64px}
+.atek-ptabs-nav{display:flex;gap:28px;border-bottom:1px solid var(--line);overflow-x:auto}
+.atek-ptabs-nav button{background:none;border:0;padding:0 0 14px;cursor:pointer;color:var(--muted);font-size:17px;font-weight:500;position:relative;white-space:nowrap}
+.atek-ptabs-nav button.is-active{color:var(--text)}
+.atek-ptabs-nav button.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--orange)}
+.atek-ptab{padding:28px 0;max-width:820px;display:none}
+.atek-ptab.is-active{display:block}
+.atek-specs{width:100%;border-collapse:collapse}
+.atek-specs td{padding:13px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.atek-specs td:first-child{color:var(--muted);width:45%;padding-right:20px}
+.atek-docs a{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.atek-docs a:hover{color:var(--blue-text)}
+.atek-docs svg{width:22px;height:22px;color:var(--orange);flex:none}
+
+/* ---------- Текст новости / описания ---------- */
+.atek-rich{font-size:17px;line-height:1.7;color:#D9DBDD}
+.atek-rich p{margin:0 0 1.1em}
+.atek-rich ul{margin:0 0 1.1em;padding-left:1.2em}
+.atek-rich li{margin:.3em 0}
+.atek-rich li::marker{color:var(--orange)}
+.atek-rich a{color:var(--blue-text);text-decoration:underline;text-underline-offset:3px}
+.atek-rich strong{color:var(--text);font-weight:600}
+.atek-rich img{border-radius:var(--r);margin:1.4em 0}
+.atek-rich h3{font-size:22px;margin:1.4em 0 .6em;color:var(--text)}
+
+/* ---------- Новости ---------- */
+.atek-news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:980px){.atek-news-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.atek-news-grid{grid-template-columns:1fr}}
+.atek-news-card{background:var(--surface);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,background .2s}
+.atek-news-card:hover{transform:translateY(-3px);background:var(--surface-2)}
+.atek-news-cover{aspect-ratio:16/10;background:#202327;overflow:hidden;position:relative}
+.atek-news-cover img{width:100%;height:100%;object-fit:cover}
+.atek-news-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.atek-news-meta{display:flex;gap:12px;align-items:center;font-size:13px;color:var(--dim)}
+.atek-news-tag{color:var(--blue-text)}
+.atek-news-card h3{font-size:20px;font-weight:600;line-height:1.3}
+.atek-news-card p{color:var(--muted);font-size:15px}
+.atek-news-card--wide{grid-column:span 2;flex-direction:row}
+.atek-news-card--wide .atek-news-cover{flex:1.2;aspect-ratio:auto;min-height:320px}
+.atek-news-card--wide .atek-news-body{flex:1;padding:32px;justify-content:flex-end}
+.atek-news-card--wide h3{font-size:28px}
+@media (max-width:980px){.atek-news-card--wide{grid-column:1/-1}}
+@media (max-width:620px){.atek-news-card--wide{flex-direction:column}.atek-news-card--wide .atek-news-cover{min-height:200px}.atek-news-card--wide .atek-news-body{padding:20px}.atek-news-card--wide h3{font-size:22px}}
+.atek-cover-ph{position:absolute;inset:0;background:var(--surface-2);overflow:hidden}
+.atek-cover-ph svg{position:absolute;right:-12%;top:50%;transform:translateY(-50%);height:140%;width:auto}
+.atek-article{max-width:760px;margin:0 auto}
+.atek-article-cover{border-radius:var(--r);overflow:hidden;margin:32px 0 40px;aspect-ratio:16/8;position:relative;background:var(--surface-2)}
+.atek-article-cover img{width:100%;height:100%;object-fit:cover}
+.atek-article .atek-h1{font-size:clamp(28px,4vw,44px)}
+.atek-back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:15px;margin-bottom:28px}
+.atek-back:hover{color:var(--text)}
+
+/* ---------- Модальное окно заявки ---------- */
+.atek-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,11,13,.7);display:none;align-items:center;justify-content:center;padding:20px}
+.atek-modal.is-open{display:flex}
+.atek-modal-box{width:100%;max-width:480px;background:var(--surface);border-radius:20px;padding:32px;position:relative;max-height:92vh;overflow:auto}
+.atek-modal-close{position:absolute;top:14px;right:14px}
+.atek-modal h3{font-size:24px;font-weight:600;margin-bottom:6px}
+.atek-form{display:grid;gap:12px;margin-top:20px}
+.atek-form input,.atek-form textarea{width:100%;border:0;border-radius:12px;background:var(--bg);padding:14px 16px;outline:none;resize:vertical}
+.atek-form input:focus,.atek-form textarea:focus{box-shadow:0 0 0 2px var(--blue)}
+.atek-form .atek-hp{position:absolute;left:-9999px;opacity:0;height:0}
+.atek-form-msg{font-size:14px;color:var(--muted)}
+.atek-form-msg.is-err{color:#F08A7E}
+.atek-form-items{font-size:14px;color:var(--muted);background:var(--bg);border-radius:12px;padding:12px 16px}
+
+/* ---------- Всплывашка ---------- */
+.atek-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:var(--text);color:var(--bg);padding:12px 20px;border-radius:999px;font-size:15px;z-index:10000;transition:transform .3s;display:flex;gap:10px;align-items:center;font-family:'Onest',system-ui,sans-serif}
+.atek-toast::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.atek-toast.is-show{transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){.atek *{transition:none!important;animation:none!important}}
