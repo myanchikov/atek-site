@@ -224,7 +224,8 @@
 .atek-qty input::-webkit-inner-spin-button{-webkit-appearance:none}
 .atek-buy-note{margin-top:16px;font-size:14px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
 .atek-ptabs{margin-top:64px}
-.atek-ptabs-nav{display:flex;gap:28px;border-bottom:1px solid var(--line);overflow-x:auto}
+.atek-ptabs-nav{display:flex;gap:28px;border-bottom:1px solid var(--line);overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+.atek-ptabs-nav::-webkit-scrollbar{display:none}
 .atek-ptabs-nav button{background:none;border:0;padding:0 0 14px;cursor:pointer;color:var(--muted);font-size:17px;font-weight:500;position:relative;white-space:nowrap}
 .atek-ptabs-nav button.is-active{color:var(--text)}
 .atek-ptabs-nav button.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--orange)}
